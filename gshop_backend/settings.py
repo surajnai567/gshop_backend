@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'category',
     'product',
     'order',
-    'offer'
-   'cloudinary_storage',
+    'offer',
+    'cloudinary_storage',
     'cloudinary',
 
 ]
