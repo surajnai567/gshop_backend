@@ -92,10 +92,10 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':  'gshop',
-        'USER': 'postgres',
-        'PASSWORD':  'daysunmon',
-        'HOST':  'localhost',
+        'NAME':  os.environ.get("NAME"), #'gshop',
+        'USER': os.environ.get("USER"),#'postgres',
+        'PASSWORD':  os.environ.get('PASSWORD'),#'daysunmon',
+        'HOST':  os.environ.get('HOST'),#'localhost',
         'PORT': 5432
 
     }
