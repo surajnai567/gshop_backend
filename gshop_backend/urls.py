@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import user, category, order, product, router
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
@@ -25,4 +25,4 @@ urlpatterns = [
     path('product/', include('product.urls')),
     path('api/v1/', include('router.urls'))
 
-]
+]+ staticfiles_urlpatterns()
