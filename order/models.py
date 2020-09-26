@@ -4,6 +4,7 @@ from django.contrib.postgres.fields import ArrayField
 # Create your models here.
 from product.models import Product
 from cloudinary.models import CloudinaryField
+from django.utils.html import mark_safe
 
 choices = (
 	('deliver', 'Delivered'),
@@ -44,6 +45,12 @@ class OrderDetail(models.Model):
 
 	def __str__(self):
 		return str(self.order_id)
+
+
+	def image_tag(self):
+		return mark_safe('<img src="%s" width="150" height="150" />' % (self.image.url))
+
+	image_tag.short_description = 'Image'
 
 
 
