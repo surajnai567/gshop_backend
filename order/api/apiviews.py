@@ -53,7 +53,9 @@ class PlaceOrderApiView(APIView):
 							   itemImage=item['itemImage'], attribute=item['attribute'],
 							   currency=item['currency'], itemtotal=item['itemtotal'],
 							   status=order.status, itemprice=item['itemprice'], total=item['itemtotal'])
+			order.totalamount += item['itemtotal']
 			item.save()
+		order.save()
 		products = []
 		orders = []
 		try:
