@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from django.http.response import JsonResponse
 from offer.models import Offer
 from.serializer import OfferSerializer
+import staticdata
 
 
 class OfferApiView(APIView):
@@ -9,6 +10,7 @@ class OfferApiView(APIView):
         offers = Offer.objects.all()
         print(offers)
         serialised = OfferSerializer(offers, many=True).data
-        print(serialised)
+        for i in serialised:
+            i['image'] = staticdata.CLOUDARY_BASE_URL + i['image']
         return JsonResponse({"code": 200, "status": "success", "offers": serialised})
 
