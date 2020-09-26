@@ -1,5 +1,6 @@
 from django.db import models
 from category.models import CategoryModel
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -12,7 +13,8 @@ class Product(models.Model):
 	currency = models.CharField(max_length=5, default='Rs.')
 	discount = models.IntegerField(default=0)
 	price = models.IntegerField()
-	image = models.ImageField()
+	#image = models.ImageField()
+	image = CloudinaryField('image')
 	homepage = models.BooleanField(default=False)
 	is_new = models.BooleanField(default=False)
 
