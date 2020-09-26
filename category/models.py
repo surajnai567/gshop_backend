@@ -12,7 +12,7 @@ class CategoryModel(models.Model):
 		return self.categry
 
 	def image_tag(self):
-		return mark_safe('<img src="%s" width="150" height="150" />' % (self.image.url))
+		return mark_safe('<img src="%s" width="150" height="150" />' % (self.cateimg.url))
 
 	image_tag.short_description = 'Image'
 
