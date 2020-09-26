@@ -3,6 +3,7 @@ from user.models import User
 from django.contrib.postgres.fields import ArrayField
 # Create your models here.
 from product.models import Product
+from cloudinary.models import CloudinaryField
 
 choices = (
 	('deliver', 'Delivered'),
@@ -32,7 +33,8 @@ class OrderDetail(models.Model):
 	itemquantity = models.CharField(max_length=10)
 	attribute = models.CharField(max_length=10)
 	currency = models.CharField(max_length=10)
-	itemImage = models.CharField(max_length=20)
+	#itemImage = models.CharField(max_length=20)
+	itemImage = CloudinaryField('image')
 	itemprice = models.CharField(max_length=10)
 	itemtotal = models.CharField(max_length=10)
 	date = models.DateField(auto_now_add=True)
