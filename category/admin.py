@@ -6,6 +6,6 @@ from.models import CategoryModel
 
 @admin.register(CategoryModel)
 class CatAdmin(admin.ModelAdmin):
-	list_display = ['categry',  'cateimg']
+	list_display = ['categry', 'image_tag']
 
 

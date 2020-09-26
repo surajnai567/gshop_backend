@@ -5,7 +5,7 @@ from .models import Offer
 
 @admin.register(Offer)
 class OfferAdmin(admin.ModelAdmin):
-	list_display = ['name',  'url']
+	list_display = ['name','image_tag']
 
 
 

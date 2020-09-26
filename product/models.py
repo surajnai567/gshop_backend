@@ -1,6 +1,7 @@
 from django.db import models
 from category.models import CategoryModel
 from cloudinary.models import CloudinaryField
+from django.utils.html import mark_safe
 
 # Create your models here.
 
@@ -17,6 +18,10 @@ class Product(models.Model):
 	image = CloudinaryField('image')
 	homepage = models.BooleanField(default=False)
 	is_new = models.BooleanField(default=False)
+
+	def image_tag(self):
+		return mark_safe('<img src="%s" width="150" height="150" />' % (self.image.url))
+	image_tag.short_description = 'Image'
 
 	def __str__(self):
 		return self.name
