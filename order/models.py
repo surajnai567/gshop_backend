@@ -4,7 +4,7 @@ from django.contrib.postgres.fields import ArrayField
 # Create your models here.
 from product.models import Product
 from cloudinary.models import CloudinaryField
-from django.utils.html import mark_safe
+from django.utils.html import mark_safe, format_html
 
 choices = (
 	('deliver', 'Delivered'),
@@ -26,6 +26,16 @@ class Order(models.Model):
 
 	def __str__(self):
 		return str(self.id)
+
+	def item_list(self):
+		temp = OrderDetail.objects.filter(order_id=self.id)
+		print(temp)
+		html = '<ol>'
+		for i in temp:
+			html += "<li>{} quantity:{} price:{}</li>".format(i.itemname, i.itemquantity, i.itemprice)
+
+		html += "</ol>"
+		return format_html(html)
 
 
 class OrderDetail(models.Model):
